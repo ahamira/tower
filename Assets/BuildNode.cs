@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class BuildNode : MonoBehaviour
 {
-    public bool hasTower = false;
+    public GameObject towerPrefab;
+    private GameObject tower;
 
     private void OnMouseDown()
     {
-        Debug.Log(gameObject.name + " ‚ªƒNƒŠƒbƒN‚³‚ê‚½");
+        if (tower != null) return;
+
+        tower = Instantiate(
+            towerPrefab,
+            transform.position,
+            Quaternion.identity
+        );
     }
 }
